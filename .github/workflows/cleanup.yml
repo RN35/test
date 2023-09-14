@@ -8,18 +8,18 @@ on:
       - closed
 
 jobs:
-    test:
-        # Run unit tests, upload code coverage, and publish documentation
-        name: Test, Upload Code Coverage, and Publish Documentation
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - name: Create Sphinx Documents
+  test:
+    # Run unit tests, upload code coverage, and publish documentation
+    name: Test, Upload Code Coverage, and Publish Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create Sphinx Documents
         env:
-            HEAD_REF: ${{ github.head_ref}}
-            REF_NAME: ${{ github.ref_name}}
-            BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          HEAD_REF: ${{ github.head_ref}}
+          REF_NAME: ${{ github.ref_name}}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         run: |
-            echo $HEAD_REF
-            echo $REF_NAME
-            echo $BRANCH_NAME
+          echo $HEAD_REF
+          echo $REF_NAME
+          echo $BRANCH_NAME
